@@ -1,80 +1,69 @@
+/* RESET */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+/* COMMON */
 
 .container {
-    width: 900px;
-    height: 100vh;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
+  background-color: burlywood;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.items {
-    position: relative;
-    width: 700px;
-    height: 300px;
+.slider {
+  width: 900px;
+  height: 450px;
+  background-color: cadetblue;
+  position: relative;
 }
 
-.item {
-    height: 100%;
-    display: none;
-    position: relative;
+.slide {
+  height: 100%;
+  background-color:thistle;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all 0.5s;
 }
 
-.item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.slide.active{
+  opacity: 1;
 }
 
-.item.active {
-    display: block;
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.prev, .next {
-    width: 20px;
-    height: 20px;
-    margin: 10px 0;
-    border-radius: 50%;
-    background: #ccc;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    cursor: pointer;
-    z-index: 999;
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 99;
+  cursor: pointer;
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 30px;
 }
 
-.next {
-    bottom: 0;
+.arrow:hover {
+  color: rgba(255, 255, 255, 1);
 }
 
-.prev::after {
-    content: '';
-    width: 10px;
-    height: 10px;
-    transform: rotate(45deg);
-    border-top: 1px solid black;
-    border-right: 1px solid black;
-    display: block;
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%) rotate(-45deg);
+.arrow.left {
+  left: 20px
 }
 
-.next::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    transform: rotate(45deg);
-    border-top: 1px solid black;
-    border-right: 1px solid black;
-    display: block;
-    position: absolute;
-    bottom: 35%;
-    left: 50%;
-    transform: translate(-50%) rotate(135deg);
+.arrow.right {
+  right: 20px;
 }
