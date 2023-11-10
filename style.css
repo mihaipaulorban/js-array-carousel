@@ -14,7 +14,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position:relative
 }
+
+/* SLIDER */
 
 .slider {
   width: 900px;
@@ -67,4 +70,32 @@
 .arrow.right {
   left: 50%;
   top: 10%
+}
+
+/* MINIATURE */
+
+.thumbnails {
+  width: 150px; 
+  height: 450px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.thumbnail {
+  margin-left: 20px;
+  width: 100%;
+  height: 60px;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  border: 2px solid transparent;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.thumbnail.active {
+  opacity: 1;
+  border-color: rgba(17, 124, 255, 0.8); 
 }
