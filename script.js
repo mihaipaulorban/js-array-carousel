@@ -36,33 +36,41 @@ const domSlides = document.querySelectorAll('.slide');
 //Eventi che manipolano lo slider
 
 
-//Tasto destro
+// Tasto destro
 left.addEventListener('click', function () {
-  console.log('ho cliccato su left');
-
 
   //Se la slide selezionata dell'array ha una posizione maggiore di 0, rimuovo la classe active da questa, mi sposto di una slide e poi aggiungo la classe active
-  if(currentSlide > 0) {
-    
-    domSlides[currentSlide].classList.remove('active');
+  if (currentSlide > 0) {
 
+    domSlides[currentSlide].classList.remove('active');
     currentSlide--;
-    
+    domSlides[currentSlide].classList.add('active');
+
+  } else {
+
+    // Se si è alla prima immagine e si clicca a sinistra, vai all'ultima immagine
+    domSlides[currentSlide].classList.remove('active');
+    currentSlide = domSlides.length - 1;
     domSlides[currentSlide].classList.add('active');
   }
 });
 
-//Tasto sinistro
-right.addEventListener('click', function () {
-  console.log('ho cliccato su right');
 
-  //Se la slide selezionata dell'array ha una posizione minore della lunghezza totale dell'array -1, rimuovo la classe active da questa, mi sposto di una slide e poi aggiungo la classe active
-  if(currentSlide < domSlides.length - 1) {
+// Tasto sinistro
+right.addEventListener('click', function () {
+
+  //Se la slide selezionata dell'array ha una posizione minore della lunghezza totale dell'array - 1, rimuovo la classe active da questa, mi sposto di una slide e poi aggiungo la classe active
+  if (currentSlide < domSlides.length - 1) {
 
     domSlides[currentSlide].classList.remove('active');
-
     currentSlide++;
+    domSlides[currentSlide].classList.add('active');
+
+  } else {
     
+    // Se si è all'ultima immagine e si clicca a destra, vai alla prima immagine
+    domSlides[currentSlide].classList.remove('active');
+    currentSlide = 0;
     domSlides[currentSlide].classList.add('active');
   }
 });
